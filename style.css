@@ -1,0 +1,250 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+  background-color: rgb(200, 200, 200);
+}
+
+h1 {
+  background-color: rgb(53, 43, 105);
+  color: white;
+  height: 80px;
+  line-height: 80px;
+}
+
+.choice {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  background-color: rgb(53, 43, 105);
+}
+
+img {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-top: 30px;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+#user-score,
+#comp-score {
+  font-size: 75px;
+}
+
+.msg-container {
+  margin-top: 50px;
+}
+
+#msg {
+  background-color: rgb(53, 43, 105);
+  color: white;
+  display: inline;
+  font-size: 40px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: rgb(50, 50, 50);
+  color: rgb(230, 230, 230);
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: black;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: white;
+}
+
+input:checked + .slider:before {
+  background-color: blue;
+  transform: translateX(25px);
+}
+
+/* Sparkle Animations */
+.sparkles {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.sparkles.win {
+  animation: sparkle-animation 2s ease-out forwards;
+  background-image: url("./images/win-sparkles.gif");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+.sparkles.lose {
+  animation: sparkle-animation 2s ease-out forwards;
+  background-image: url("./images/lose-sparkles.gif");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes sparkle-animation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .choice {
+    height: 100px;
+    width: 100px;
+  }
+
+  img {
+    height: 90px;
+    width: 90px;
+  }
+
+  .choices {
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .score-board {
+    font-size: 20px;
+    gap: 50px;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 50px;
+  }
+
+  #msg {
+    font-size: 30px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .choice {
+    height: 80px;
+    width: 80px;
+  }
+
+  img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .choices {
+    gap: 20px;
+  }
+
+  .score-board {
+    gap: 30px;
+  }
+
+  #user-score,
+  #comp-score {
+    font-size: 40px;
+  }
+
+  #msg {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .dark-mode-toggle {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
