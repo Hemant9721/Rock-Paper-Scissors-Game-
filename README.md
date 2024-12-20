@@ -35,6 +35,9 @@ rock-paper-scissors-game/
 ├── README.md      # Project documentation
 ```
 
+## Acknowledgments
+Special thanks to Shradha Khapra mam for teach all this stuff!
+
 ## Contact
 For any inquiries or suggestions, please contact dcsoni2480@gmail.com.
 
